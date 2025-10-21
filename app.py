@@ -3,9 +3,10 @@ tasks = []
 def add_task(task_name):
     tasks.append({'name': task_name, 'completed': False})
 
-def complete_task(task_index):
+def delete_task(task_index):
     if 0 <= task_index < len(tasks):
-        tasks[task_index]['completed'] = True
+        deleted = tasks.pop(task_index)
+        print(f"Đã xóa: {deleted['name']}")
     else:
         print("Chỉ số không hợp lệ!")
 
@@ -18,5 +19,5 @@ def list_tasks():
 if __name__ == "__main__":
     add_task("Học bài Git")
     add_task("Làm bài tập")
-    complete_task(0)
+    delete_task(1)
     list_tasks()
